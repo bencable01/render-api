@@ -10,7 +10,7 @@ app.use(express.json());
 /* ----------- CORS ----------- */
 const allowedOrigins = [
   'http://localhost:4200',
-  'https://hello-render-dplb.onrender.com/'
+  'https://hello-render-dplb.onrender.com'
 ];
 
 app.use(cors({
