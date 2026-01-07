@@ -8,9 +8,21 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 /* ----------- CORS ----------- */
+const allowedOrigins = [
+  'http://localhost:4200',
+  'https://hello-render-dplb.onrender.com/'
+];
+
 app.use(cors({
-  origin: 'http://localhost:4200'
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS blocked'));
+    }
+  }
 }));
+
 
 /* ---------------- API ---------------- */
 
